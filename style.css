@@ -173,7 +173,7 @@ body{
 /* FOOTER */
 
 .footer{
-  height:78px;
+  height:48px;
   display:flex;
   align-items:center;
   justify-content:space-between;
