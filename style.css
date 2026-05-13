@@ -114,34 +114,17 @@ body{
   flex:1;
 }
 
-#bar0{
-  background:#c85c96;
-  animation:bar0 2s infinite alternate;
+#bar0{ background:#6d366f; }
+#bar1{ background:#1a8e8e; }
+#bar2{ background:#a39475; }
+
+.bar{
+  animation:bar-pulse 0.3s ease-in-out infinite alternate;
 }
 
-#bar1{
-  background:#ababab;
-  animation:bar1 2s infinite alternate;
-}
-
-#bar2{
-  background:#68b3ac;
-  animation:bar2 2s infinite alternate;
-}
-
-@keyframes bar0{
-  from{filter:hue-rotate(0deg);}
-  to{filter:hue-rotate(-20deg);}
-}
-
-@keyframes bar1{
-  from{filter:brightness(1);}
-  to{filter:brightness(.82);}
-}
-
-@keyframes bar2{
-  from{filter:hue-rotate(0deg);}
-  to{filter:hue-rotate(25deg);}
+@keyframes bar-pulse{
+  from{ opacity:1; }
+  to{   opacity:0.3; }
 }
 
 .ticket-image{
