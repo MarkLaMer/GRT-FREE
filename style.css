@@ -23,7 +23,7 @@ body{
   display:flex;
   flex-direction:column;
   position:relative;
-  padding:46px 28px 14px 28px;
+  padding:46px 28px 56px 28px;
 }
 
 /* CLOSE BUTTON */
@@ -208,10 +208,10 @@ body{
     height:100dvh;
     border-radius:0;
     box-shadow:none;
-    padding:46px 28px 0 28px;
+    padding:46px 28px 56px 28px;
   }
 
   .card{
-    border-radius:12px 12px 0 0;
+    border-radius:12px;
   }
 }
