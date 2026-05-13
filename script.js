@@ -62,7 +62,7 @@ function tick() {
 
   // cosine easing: slow at ends, fast in the middle; full back-and-forth = 2s
   elapsed++;
-  const period = 125; // 62.5 ticks/direction × 2
+  const period = 166; // ~83 ticks/direction × 2 (33% slower)
   const t = (elapsed % period) / period;
   const bx = maxBx * (1 - Math.cos(t * 2 * Math.PI)) / 2;
 
