@@ -108,6 +108,8 @@ body{
   height:56px;
   display:flex;
   position:relative;
+  border-radius:6px 6px 0 0;
+  overflow:hidden;
 }
 
 .bar{
