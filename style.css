@@ -23,23 +23,23 @@ body{
   display:flex;
   flex-direction:column;
   position:relative;
-  padding:14px 14px 0 14px;
+  padding:26px 14px 0 14px;
 }
 
 /* CLOSE BUTTON */
 
 .close-btn{
   position:absolute;
-  top:2px;
-  right:10px;
+  top:4px;
+  right:14px;
   background:none;
   border:none;
-  font-size:13px;
+  font-size:12px;
   font-weight:600;
   color:#555;
   cursor:pointer;
   z-index:10;
-  padding:4px 6px;
+  padding:2px 4px;
   letter-spacing:.2px;
 }
 
@@ -56,7 +56,7 @@ body{
 
 .header{
   background:#006cb7;
-  height:44px;
+  height:36px;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -87,11 +87,16 @@ body{
 
 .stack{
   margin-top:20px;
-  padding:0 14px;
 }
 
 .banners{
   position:relative;
+  margin:0 14px;
+  border:1px solid rgba(0,0,0,0.14);
+  border-radius:10px;
+  overflow:hidden;
+  padding:6px;
+  background:white;
 }
 
 .bars{
@@ -148,7 +153,7 @@ body{
   font-family:Arial,Helvetica,sans-serif;
   font-weight:700;
   color:white;
-  font-size:20px;
+  font-size:15px;
   white-space:nowrap;
   z-index:5;
   text-shadow:
@@ -209,11 +214,7 @@ body{
     height:100dvh;
     border-radius:0;
     box-shadow:none;
-    padding:14px 14px 0 14px;
-  }
-
-  .stack{
-    padding:0 14px;
+    padding:26px 14px 0 14px;
   }
 
   #qrCanvas{
