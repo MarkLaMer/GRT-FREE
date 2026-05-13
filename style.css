@@ -19,11 +19,40 @@ body{
   height:780px;
   background:white;
   border-radius:18px;
-  overflow:hidden;
   box-shadow:0 2px 12px rgba(0,0,0,0.22);
   display:flex;
   flex-direction:column;
   position:relative;
+  padding:14px 14px 0 14px;
+}
+
+/* CLOSE BUTTON */
+
+.close-btn{
+  position:absolute;
+  top:6px;
+  right:8px;
+  background:none;
+  border:none;
+  font-size:22px;
+  color:#999;
+  cursor:pointer;
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+  line-height:1;
+}
+
+/* INNER CARD */
+
+.card{
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 16px rgba(0,0,0,0.22);
+  flex-shrink:0;
 }
 
 /* HEADER */
@@ -62,12 +91,9 @@ body{
 
 .stack{
   margin-top:20px;
-  padding:0 28px;
 }
 
 .banners{
-  border-radius:12px;
-  overflow:hidden;
   position:relative;
 }
 
@@ -121,15 +147,19 @@ body{
 #bounceTime{
   position:absolute;
   top:50%;
-  transform:translateY(-50%);
+  transform:translateY(-50%) scaleY(1.4);
+  transform-origin:left center;
   color:white;
   font-size:20px;
   font-weight:700;
   white-space:nowrap;
   z-index:5;
   text-shadow:
-    0 2px 5px rgba(0,0,0,.95),
-    0 0 2px rgba(0,0,0,.9);
+    -1px -1px 0 rgba(0,0,0,.9),
+     1px -1px 0 rgba(0,0,0,.9),
+    -1px  1px 0 rgba(0,0,0,.9),
+     1px  1px 0 rgba(0,0,0,.9),
+     0 0 8px rgba(0,0,0,.7);
   pointer-events:none;
 }
 
@@ -182,16 +212,14 @@ body{
   .ticket{
     width:100vw;
     height:100vh;
+    height:100dvh;
     border-radius:0;
     box-shadow:none;
-  }
-
-  .stack{
-    padding:0 18px;
+    padding:14px 14px 0 14px;
   }
 
   #qrCanvas{
-    width:310px;
-    height:310px;
+    width:260px;
+    height:260px;
   }
 }

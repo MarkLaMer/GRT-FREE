@@ -23,7 +23,8 @@ function drawQR(seed) {
   for (let c = 0; c < cols; c++)
     for (let r = 0; r < cols; r++)
       if (rand() > 0.5) ctx.fillRect(c * cell, r * cell, cell, cell);
-  // 5 rings, each exactly 1 cell thick, centered at cell (30,30)
+  // 5 rings of 1 cell each, centered exactly in the 240px canvas (center = 120px)
+  const cx = cols / 2 * cell;  // 120px
   const rings = [
     { r: 6, color: '#000' },
     { r: 5, color: '#fff' },
@@ -34,8 +35,11 @@ function drawQR(seed) {
   ];
   for (const { r, color } of rings) {
     ctx.fillStyle = color;
-    ctx.fillRect((30 - r) * cell, (30 - r) * cell, r * 2 * cell, r * 2 * cell);
+    ctx.fillRect(cx - r * cell, cx - r * cell, r * 2 * cell, r * 2 * cell);
   }
+  // single black center cell, visually centered
+  ctx.fillStyle = '#000';
+  ctx.fillRect(cx - cell / 2, cx - cell / 2, cell, cell);
 }
 
 function pad2(n) { return String(n).padStart(2, '0'); }
@@ -60,8 +64,6 @@ function tick() {
   if (bx <= 0 || bx >= maxBx) { vx *= -1; bx = Math.max(0, Math.min(bx, maxBx)); }
 
   bt.style.left = bx + 'px';
-  bt.style.top  = '50%';
-  bt.style.transform = 'translateY(-50%)';
 }
 
 drawQR(0);
