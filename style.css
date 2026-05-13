@@ -34,7 +34,7 @@ body{
   right:28px;
   background:none;
   border:none;
-  font-size:20px;
+  font-size:14px;
   font-weight:500;
   color:#555;
   cursor:pointer;
@@ -67,7 +67,7 @@ body{
 
 .header h1{
   color:white;
-  font-size:22px;
+  font-size:16px;
   font-weight:700;
   letter-spacing:.2px;
 }
@@ -184,7 +184,7 @@ body{
   align-items:center;
   gap:6px;
   color:#1487cc;
-  font-size:18px;
+  font-size:14px;
   font-weight:500;
 }
 
