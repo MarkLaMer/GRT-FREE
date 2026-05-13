@@ -30,20 +30,17 @@ body{
 
 .close-btn{
   position:absolute;
-  top:6px;
-  right:8px;
+  top:2px;
+  right:10px;
   background:none;
   border:none;
-  font-size:22px;
-  color:#999;
+  font-size:13px;
+  font-weight:600;
+  color:#555;
   cursor:pointer;
-  width:32px;
-  height:32px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   z-index:10;
-  line-height:1;
+  padding:4px 6px;
+  letter-spacing:.2px;
 }
 
 /* INNER CARD */
@@ -59,11 +56,10 @@ body{
 
 .header{
   background:#006cb7;
-  height:70px;
+  height:44px;
   display:flex;
   justify-content:center;
-  align-items:flex-end;
-  padding-bottom:14px;
+  align-items:center;
 }
 
 .header h1{
@@ -91,6 +87,7 @@ body{
 
 .stack{
   margin-top:20px;
+  padding:0 14px;
 }
 
 .banners{
@@ -147,19 +144,16 @@ body{
 #bounceTime{
   position:absolute;
   top:50%;
-  transform:translateY(-50%) scaleY(1.4);
-  transform-origin:left center;
+  transform:translateY(-50%);
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:700;
   color:white;
   font-size:20px;
-  font-weight:700;
   white-space:nowrap;
   z-index:5;
   text-shadow:
-    -1px -1px 0 rgba(0,0,0,.9),
-     1px -1px 0 rgba(0,0,0,.9),
-    -1px  1px 0 rgba(0,0,0,.9),
-     1px  1px 0 rgba(0,0,0,.9),
-     0 0 8px rgba(0,0,0,.7);
+    0 0 2px black,
+    2px 2px 4px black;
   pointer-events:none;
 }
 
@@ -216,6 +210,10 @@ body{
     border-radius:0;
     box-shadow:none;
     padding:14px 14px 0 14px;
+  }
+
+  .stack{
+    padding:0 14px;
   }
 
   #qrCanvas{
