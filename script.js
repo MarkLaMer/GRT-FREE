@@ -58,13 +58,14 @@ function tick() {
   bt.textContent = `${pad2(now.getHours())}:${pad2(now.getMinutes())}:${pad2(now.getSeconds())} ${pad2(now.getDate())}/${pad2(now.getMonth() + 1)}/${String(now.getFullYear()).slice(-2)}`;
 
   const bars = document.querySelector('.bars');
-  maxBx = Math.max(0, bars.offsetWidth - bt.offsetWidth);
+  const edgeMargin = 10;
+  maxBx = Math.max(0, bars.offsetWidth - bt.offsetWidth - edgeMargin * 2);
 
-  // cosine easing: slow at ends, fast in the middle; full back-and-forth = 2s
+  // cosine easing: slow at ends, fast in the middle
   elapsed++;
-  const period = 250; // ~125 ticks/direction × 2
+  const period = 210;
   const t = (elapsed % period) / period;
-  const bx = maxBx * (1 - Math.cos(t * 2 * Math.PI)) / 2;
+  const bx = edgeMargin + maxBx * (1 - Math.cos(t * 2 * Math.PI)) / 2;
 
   bt.style.left = bx + 'px';
 }
