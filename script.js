@@ -1,7 +1,7 @@
 const canvas = document.getElementById('qrCanvas');
 const ctx = canvas.getContext('2d');
 
-let bx = 0, vx = 1;
+let elapsed = 0;
 let maxBx = 100;
 let currentTheme = 0, lastQRTheme = -1;
 
@@ -60,14 +60,11 @@ function tick() {
   const bars = document.querySelector('.bars');
   maxBx = Math.max(0, bars.offsetWidth - bt.offsetWidth);
 
-  // traverse full width in 1 second (1000ms / 16ms ≈ 62.5 ticks)
-  if (maxBx > 0) {
-    const speed = maxBx / 62.5;
-    vx = (vx < 0 ? -1 : 1) * speed;
-  }
-
-  bx += vx;
-  if (bx <= 0 || bx >= maxBx) { vx *= -1; bx = Math.max(0, Math.min(bx, maxBx)); }
+  // cosine easing: slow at ends, fast in the middle; full back-and-forth = 2s
+  elapsed++;
+  const period = 125; // 62.5 ticks/direction × 2
+  const t = (elapsed % period) / period;
+  const bx = maxBx * (1 - Math.cos(t * 2 * Math.PI)) / 2;
 
   bt.style.left = bx + 'px';
 }
