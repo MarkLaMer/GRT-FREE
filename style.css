@@ -17,7 +17,7 @@ body{
 .ticket{
   width:420px;
   height:780px;
-  background:white;
+  background:#f7f7f7;
   border-radius:18px;
   box-shadow:0 2px 12px rgba(0,0,0,0.22);
   display:flex;
@@ -82,8 +82,8 @@ body{
 }
 
 #qrCanvas{
-  width:380px;
-  height:380px;
+  width:196px;
+  height:196px;
   image-rendering:pixelated;
 }
 
@@ -199,7 +199,7 @@ body{
 @media (max-width:430px){
 
   body{
-    background:white;
+    background:#f7f7f7;
   }
 
   .ticket{
@@ -213,10 +213,5 @@ body{
 
   .card{
     border-radius:12px 12px 0 0;
-  }
-
-  #qrCanvas{
-    width:260px;
-    height:260px;
   }
 }
