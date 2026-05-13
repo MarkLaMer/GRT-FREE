@@ -1,6 +1,6 @@
 {
-  "name": "GRT Single Ride Ticket",
-  "short_name": "GRT Ticket",
+  "name": "GRT Free",
+  "short_name": "GRT Free",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
