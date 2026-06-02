@@ -6,6 +6,18 @@
   const bars = document.querySelector('.bars');
   const barEls = [document.getElementById('bar0'), document.getElementById('bar1'), document.getElementById('bar2')];
   const tmClock = document.getElementById('tmClock');
+  const banners = document.querySelector('.banners');
+  const activatedBar = document.getElementById('activatedBar');
+  const ACTIVATED_MS = 5 * 60 * 1000;   // show "Activated" strip for the first 5 minutes
+  let activatedTimer = null;
+
+  function activate() {
+    const d = new Date();
+    activatedBar.textContent = `Activated ${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+    banners.classList.add('activated');
+    clearTimeout(activatedTimer);
+    activatedTimer = setTimeout(() => banners.classList.remove('activated'), ACTIVATED_MS);
+  }
 
   /* ---------------- NAVIGATION ---------------- */
   function go(screen) { app.dataset.screen = screen; }
@@ -19,6 +31,7 @@
     app.dataset.modal = 'open';
     modalOpen = true;
     seedBounce();
+    activate();
   }
   function closeTicket() { app.dataset.modal = 'closed'; modalOpen = false; }
   document.querySelectorAll('[data-open-ticket]').forEach(el => el.addEventListener('click', openTicket));
@@ -73,17 +86,17 @@
   /* ---------------- ANIMATION LOOP (time-based) ---------------- */
   const pad2 = n => String(n).padStart(2, '0');
   const EDGE = 10;          // px margin at each end of the bar
-  const BOUNCE_MS = 3600;   // full left→right→left round-trip (slower, tuned to video)
-  const QR_REFRESH_MS = 1000;
+  const BOUNCE_MS = 3000;   // full round-trip → ~1.5s each way
+  const QR_REFRESH_MS = 2000;
 
-  // pronounced ease-in-out: clear pause/slow at each end, fast through the middle
-  function easeInOutCubic(x) {
-    return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+  // gentle ease-in-out (quad): softer acceleration than cubic
+  function easeInOutQuad(x) {
+    return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
   }
   function bouncePos(now, maxBx) {
     const u = (now % BOUNCE_MS) / BOUNCE_MS;          // 0..1 over full cycle
     const tri = u < 0.5 ? u * 2 : (1 - u) * 2;         // 0→1→0 triangle (one-way each half)
-    return EDGE + maxBx * easeInOutCubic(tri);
+    return EDGE + maxBx * easeInOutQuad(tri);
   }
 
   let lastQR = 0;
@@ -121,5 +134,5 @@
     const maxBx = Math.max(0, bars.offsetWidth - bt.offsetWidth - EDGE * 2);
     bt.style.left = (EDGE + maxBx / 2) + 'px';
   }
-  if (app.dataset.modal === 'open') { randomizeColors(); drawQR(Math.floor(Math.random() * 1e6)); modalOpen = true; seedBounce(); }
+  if (app.dataset.modal === 'open') { randomizeColors(); drawQR(Math.floor(Math.random() * 1e6)); modalOpen = true; seedBounce(); activate(); }
 })();

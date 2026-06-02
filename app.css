@@ -284,6 +284,16 @@ body{
 @keyframes bar-pulse{ from{ filter:brightness(1); } to{ filter:brightness(1.18); } }
 
 .ticket-image{ width:100%; display:block; border-radius:0 0 7px 7px; }
+.banners.activated .ticket-image{ border-radius:0; }
+
+.activated-bar{
+  background:var(--grt-green); color:#fff; font-weight:700;
+  text-align:center; font-size:18px; letter-spacing:.2px;
+  max-height:0; padding:0; opacity:0; overflow:hidden;
+  border-radius:0 0 7px 7px;
+  transition:max-height .45s ease, padding .45s ease, opacity .35s ease;
+}
+.banners.activated .activated-bar{ max-height:60px; padding:11px 0; opacity:1; }
 
 #bounceTime{
   position:absolute; top:50%; transform:translateY(-50%);
