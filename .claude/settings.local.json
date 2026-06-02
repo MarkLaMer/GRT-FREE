@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(flutter --version)",
-      "Bash(flutter doctor *)",
-      "PowerShell(flutter *)"
-    ]
-  }
-}

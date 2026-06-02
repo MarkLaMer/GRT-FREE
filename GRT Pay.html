@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0072bc">
+<title>GRT Free</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="phone">
+  <div class="phone-screen">
+    <div class="island"></div>
+
+    <div class="app" id="app" data-screen="home" data-modal="closed">
+
+      <!-- ============ SCREENS ============ -->
+      <div class="screens">
+
+        <!-- ---------- HOME ---------- -->
+        <section class="screen s-home" data-screen-label="Home">
+          <div class="home-head">
+            <div class="home-logo">
+              <span class="lg-grt">GRT</span><span class="lg-pay">Free</span>
+              <img src="assets/grt-mark2.png" alt="">
+            </div>
+            <div class="home-burger"><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="home-list">
+            <div class="row-card" data-go="select">
+              <span class="ic">__IC_TICKET__</span>
+              <span class="label">Buy Tickets</span>
+              <span class="chev">__IC_CHEV__</span>
+            </div>
+            <div class="row-card">
+              <span class="ic">__IC_WALLET__</span>
+              <span class="label">Ticket Wallet</span>
+              <span class="chev">__IC_CHEV__</span>
+            </div>
+            <div class="info-banner">
+              <span class="ic">__IC_STAR__</span>
+              <span class="txt">Recent trips will appear here!</span>
+            </div>
+            <div class="info-banner bold">
+              <span class="ic">__IC_TAG__</span>
+              <span class="txt">Your top tickets will appear here for quick access</span>
+            </div>
+            <div class="row-card">
+              <span class="ic">__IC_BAG__</span>
+              <span class="label">Account Balance</span>
+              <span class="chev">__IC_CHEV__</span>
+            </div>
+            <div class="green-btn">
+              <span class="txt">Log In or Sign Up to view balance</span>
+              <span class="chev">__IC_CHEV_DK__</span>
+            </div>
+            <div class="row-card">
+              <span class="ic">__IC_MAP__</span>
+              <span class="label">Trip Tools</span>
+              <span class="chev">__IC_CHEV__</span>
+            </div>
+            <div class="row-card">
+              <span class="ic">__IC_CLOCK__</span>
+              <span class="label">Next Ride</span>
+              <span class="chev">__IC_CHEV__</span>
+            </div>
+            <div class="row-card">
+              <span class="ic">__IC_ALERT__</span>
+              <span class="label">Service Alerts</span>
+              <span class="chev">__IC_CHEV__</span>
+            </div>
+            <div class="row-card">
+              <span class="ic">__IC_WARN__</span>
+              <span class="label">Report an Issue</span>
+              <span class="chev">__IC_CHEV__</span>
+            </div>
+            <div class="row-card">
+              <span class="ic">__IC_GLOBE__</span>
+              <span class="label">Languages</span>
+              <span class="chev">__IC_CHEV__</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---------- SELECT TICKET ---------- -->
+        <section class="screen s-select" data-screen-label="Select Ticket">
+          <div class="sel-head">
+            <div class="sel-back" data-go="home">__IC_BACK__<span>Back</span></div>
+            <div class="sel-title">Select Ticket</div>
+          </div>
+          <div class="sel-progress"><div class="p-yellow"></div><div class="p-green"></div></div>
+          <div class="sel-subhead">Single Ride</div>
+          <div class="sel-tabs">
+            <div class="sel-tab active">Single</div>
+            <div class="sel-tab inactive">Multiple</div>
+          </div>
+          <div class="sel-body">
+            <div class="ticket-row" data-open-ticket>
+              <span class="ic-info">__IC_INFO__</span>
+              <div class="tr-main">
+                <div class="tr-title">Ticket</div>
+                <div class="tr-sub">Single ticket valid for 120 minutes</div>
+              </div>
+              <div class="tr-price"><b>CA$0.00</b><span class="chev">__IC_CHEV__</span></div>
+            </div>
+          </div>
+          <div class="home-indicator"></div>
+        </section>
+      </div>
+
+      <!-- ============ TICKET MODAL ============ -->
+      <div class="ticket-modal" data-screen-label="Ticket">
+        <div class="tm-close-row"><span class="tm-close" data-close-ticket>Close</span></div>
+
+        <div class="tm-scroll">
+          <div class="card">
+            <div class="card-header"><h1>Single Ride Ticket</h1></div>
+            <div class="qr-section"><canvas id="qrCanvas" width="240" height="240"></canvas></div>
+            <div class="stack">
+              <div class="banners">
+                <div class="bars">
+                  <div class="bar" id="bar0"></div>
+                  <div class="bar" id="bar1"></div>
+                  <div class="bar" id="bar2"></div>
+                  <div id="bounceTime"></div>
+                </div>
+                <img class="ticket-image" src="assets/lower_banner.png" alt="Single-ride ticket">
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="divider"></div>
+            <div class="footer">
+              <div class="footer-btn">
+                <svg viewBox="0 0 24 24"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                Actions
+              </div>
+              <div class="footer-btn">
+                <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                Details
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-indicator"></div>
+    </div>
+  </div>
+</div>
+
+<script src="icons.js"></script>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#0072bc"/>
+    <text x="50" y="44" font-family="Helvetica,Arial,sans-serif" font-size="26" font-style="italic" font-weight="800" fill="#ffffff" text-anchor="middle">GRT</text>
+    <text x="50" y="70" font-family="Helvetica,Arial,sans-serif" font-size="22" font-style="italic" font-weight="800" fill="#5fb446" text-anchor="middle">Free</text>
+  </svg>
+</template>
+<script src="app.js"></script>
+</body>
+</html>
