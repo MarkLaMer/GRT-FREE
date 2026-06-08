@@ -233,7 +233,12 @@ body{
   z-index:300;
   transform:translateY(100%);
   transition:transform .42s cubic-bezier(.32,.72,0,1);
-  border-radius:47px;
+  /* no border-radius — we fill the full screen including safe area */
+  border-radius:0;
+}
+/* restore rounded corners only inside the phone frame preview (not on a real phone) */
+@media (min-width:441px){
+  .ticket-modal{ border-radius:47px; }
 }
 .app[data-modal="open"] .ticket-modal{ transform:translateY(0); }
 
@@ -250,12 +255,13 @@ body{
 .tm-bar .sb-right{ display:flex; align-items:center; gap:7px; }
 .tm-close-row{
   flex-shrink:0; display:flex; justify-content:flex-end;
-  padding:calc(14px + var(--safe-top)) 24px 4px;
+  /* safe-area-inset-top pushes Close below the status bar on real phones */
+  padding:calc(8px + var(--safe-top)) 24px 4px;
   background:#ececec;
 }
 .tm-close{ color:#1487cc; font-size:19px; font-weight:400; cursor:pointer; }
 
-.tm-scroll{ flex:1; overflow-y:auto; padding:12px 18px 30px; display:flex; flex-direction:column; }
+.tm-scroll{ flex:1; overflow-y:auto; padding:12px 18px calc(24px + var(--safe-bottom)); display:flex; flex-direction:column; }
 .tm-scroll::-webkit-scrollbar{ display:none; }
 
 .card{
@@ -264,7 +270,7 @@ body{
   box-shadow:0 4px 16px rgba(0,0,0,.20);
   background:#fff;
   flex:1;
-  min-height:560px;
+  min-height:520px;
 }
 .card-header{
   background:var(--grt-blue-dark); height:38px;
