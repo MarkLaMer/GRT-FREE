@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
 <title>GRT Free</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icon-512.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="GRT Free">
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -33,9 +38,14 @@
               <span class="label">Buy Tickets</span>
               <span class="chev">__IC_CHEV__</span>
             </div>
-            <div class="row-card">
+            <div class="row-card" data-go="wallet">
               <span class="ic">__IC_WALLET__</span>
               <span class="label">Ticket Wallet</span>
+              <span class="chev">__IC_CHEV__</span>
+            </div>
+            <div class="row-card" data-go="alerts">
+              <span class="ic">__IC_BELL__</span>
+              <span class="label">Bus Arrival Alerts</span>
               <span class="chev">__IC_CHEV__</span>
             </div>
             <div class="info-banner">
@@ -107,6 +117,60 @@
           </div>
           <div class="home-indicator"></div>
         </section>
+
+        <!-- ---------- TICKET WALLET ---------- -->
+        <section class="screen s-wallet" data-screen-label="Ticket Wallet">
+          <div class="sel-head wallet-head">
+            <div class="sel-back" data-go="home">__IC_BACK__<span>Back</span></div>
+            <div class="sel-title">Ticket Wallet</div>
+            <div class="wallet-refresh" data-wallet-refresh>__IC_REFRESH__</div>
+          </div>
+          <div class="sel-tabs">
+            <div class="sel-tab active" data-wallet-tab="tickets">Tickets</div>
+            <div class="sel-tab inactive" data-wallet-tab="history">History</div>
+          </div>
+          <div class="wallet-body">
+            <div class="wallet-pane" data-pane="tickets"></div>
+            <div class="wallet-pane" data-pane="history" hidden></div>
+          </div>
+          <div class="wallet-footer">
+            <div class="wallet-buy" data-go="select">Buy tickets</div>
+            <div class="wallet-login">Log in to view tickets</div>
+          </div>
+          <div class="home-indicator"></div>
+        </section>
+
+        <!-- ---------- BUS ARRIVAL ALERTS ---------- -->
+        <section class="screen s-alerts" data-screen-label="Arrival Alerts">
+          <div class="sel-head">
+            <div class="sel-back" data-go="home">__IC_BACK__<span>Back</span></div>
+            <div class="sel-title">Arrival Alerts</div>
+          </div>
+          <div class="alerts-body">
+            <p class="al-intro">Get a notification when your bus is approaching. Enter the route and the stop number printed on the bus-stop sign.</p>
+            <div class="al-field">
+              <label for="alRoute">Route number</label>
+              <input id="alRoute" type="text" inputmode="numeric" autocomplete="off" placeholder="e.g. 7">
+            </div>
+            <div class="al-field">
+              <label for="alStop">Stop number</label>
+              <input id="alStop" type="text" inputmode="numeric" autocomplete="off" placeholder="e.g. 1180 (on the stop sign)">
+            </div>
+            <div class="al-field">
+              <label>Notify me before arrival</label>
+              <div class="al-minutes" id="alMinutes">
+                <button type="button" class="al-min" data-min="2">2 min</button>
+                <button type="button" class="al-min active" data-min="5">5 min</button>
+                <button type="button" class="al-min" data-min="10">10 min</button>
+                <button type="button" class="al-min" data-min="15">15 min</button>
+              </div>
+            </div>
+            <button type="button" class="al-enable" id="alEnable">Enable alert</button>
+            <div class="al-status" id="alStatus" hidden></div>
+            <div class="al-list" id="alList"></div>
+          </div>
+          <div class="home-indicator"></div>
+        </section>
       </div>
 
       <!-- ============ TICKET MODAL ============ -->
@@ -159,5 +223,6 @@
   </svg>
 </template>
 <script src="app.js"></script>
+<script src="push.js"></script>
 </body>
 </html>

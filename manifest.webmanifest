@@ -1,0 +1,13 @@
+{
+  "name": "GRT Free",
+  "short_name": "GRT Free",
+  "description": "Tickets and bus arrival alerts for Grand River Transit.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0072bc",
+  "theme_color": "#0072bc",
+  "icons": [
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

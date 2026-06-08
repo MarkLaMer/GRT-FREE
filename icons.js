@@ -14,6 +14,8 @@ const ICONS = {
   CHEV: '<svg viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l6 6-6 6"/></svg>',
   CHEV_DK: '<svg viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l6 6-6 6"/></svg>',
   BACK: '<svg viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1L1 7l6 6"/></svg>',
+  REFRESH: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-.9 5"/><path d="M20 4.5V11h-6.2"/></svg>',
+  BELL: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6-2.4 7.5-2.4 7.5h16.8S18 14.5 18 8.5z"/><path d="M10 20a2.2 2.2 0 0 0 4 0"/></svg>',
 };
 
 // Status bar right-side icons (cellular, wifi, battery)
@@ -49,7 +51,9 @@ function applyIcons() {
     .replace(/__IC_INFO__/g, ICONS.INFO)
     .replace(/__IC_CHEV_DK__/g, ICONS.CHEV_DK)
     .replace(/__IC_CHEV__/g, ICONS.CHEV)
-    .replace(/__IC_BACK__/g, ICONS.BACK);
+    .replace(/__IC_BACK__/g, ICONS.BACK)
+    .replace(/__IC_REFRESH__/g, ICONS.REFRESH)
+    .replace(/__IC_BELL__/g, ICONS.BELL);
   app.innerHTML = html;
   document.querySelectorAll('[data-sb-icons]').forEach(el => el.innerHTML = SB_ICONS);
 }
